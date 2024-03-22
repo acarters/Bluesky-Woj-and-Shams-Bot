@@ -172,7 +172,7 @@ export default class Bot
       var bskyRecord = bskyPost["post"]["record"]; // Filter post i down so we are only considering the record.
       var bskyEntries = Object.entries(bskyRecord); // Accessing the values from here is weird, so I put them all in an array and access the one corresponding to text (0,1).
       var bskyText = bskyEntries[bskyEntries.length - 1][1];
-      if (text === bskyText || text === "") // Check if the text we are trying to post has already been posted in the last postNum posts, or is empty. Might change empty conditional if I get images working.  
+      if (text === bskyText || text === "" || text === "SHAMS: " || text === "WOJ: ") // Check if the text we are trying to post has already been posted in the last postNum posts, or is empty. Might change empty conditional if I get images working.  
       {
         console.log("failed on case " + i);
         return "37"; // Output an arbitrary value that can be treated as a fail code. Could be anything, I picked 37 because I like the number 37. 
