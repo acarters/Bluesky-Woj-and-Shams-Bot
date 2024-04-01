@@ -100,11 +100,11 @@ export default async function getPostText()
 		var label = "";
 		if (content1.includes(contentString))
 		{
-			label = "SHAMS: ";
+			label = "WOJ: ";
 		}
 		else
 		{
-			label = "WOJ: ";
+			label = "SHAMS: ";
 		}
 		contentString = contentString.slice(1,-1); // Remove the quotation marks.
 		contentString = label + contentString;
