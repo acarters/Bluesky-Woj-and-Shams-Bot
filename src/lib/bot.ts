@@ -325,22 +325,17 @@ export default class Bot
           }
           chunkStr = chunkArr.join(" "); // Turn the last chunk into a string by delimiting the words with spaces.
           threadArr.push(chunkStr); // Add the last chunk string to the thread array.
-          console.log("threadArr:");
-          console.log(threadArr);
           var isReply = false; // Create a boolean value to determine if we want to post a root post or a reply. Start with a root post. 
           for (var j = 0; j < threadArr.length; j++) // Iterate over all of the chunk strings contained in the thread array.
           {
-            console.log("posting " + j + ": " + threadArr[j]);
             var postVal = await bot.post(isReply, mastUrlArr[i], mastAltArr[i], mastCardArr[i], threadArr[j] + " [" + (j+1) + "/" + threadArr.length + "]"); // Post string j in the thread array. Use the boolean variable to determine whether this is a root post or a reply, add a post counter on the end to make the thread easier to read. 
             if (Number(postVal) != 37)
             {
               postCount++;
             }
-            console.log("posted! ");
             if (isReply == false) // If this post was posted as a root, meaning that this is the first iteration:
             {
               isReply = true; // Set the boolean value to post as replies for the remaining iterations.
-              console.log(mastUrlArr[i]);
               mastUrlArr[i] = "None!^&None!^&None!^&None";
               mastAltArr[i] = "None!^&None!^&None!^&None";
             }
